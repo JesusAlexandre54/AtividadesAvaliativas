@@ -2,6 +2,7 @@ package com.example.atividadesavaliativas;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -13,14 +14,19 @@ import android.widget.Toast;
 
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.Random;
+
 public class DwQuestoes extends AppCompatActivity {
     RadioButton a,b,c,d,e;
     Button bt_resposta, bt_continuar;
     RadioGroup radioGroup;
-    TextView tv_resposta, tv_placar,tv_questao;
+    TextView tv_resposta, tv_placar,tv_questao,numeroQuestao;
     String questao, resp1,resp2,resp3,resp4,resp5,respcorreta;
     //Firestore
     FirebaseFirestore db;
+    int Placar ;
+    int Questao ;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +44,30 @@ public class DwQuestoes extends AppCompatActivity {
         c = findViewById(R.id.dw_c);
         d = findViewById(R.id.dw_d);
         e = findViewById(R.id.dw_e);
-       db.collection("DesenvolvimentoWeb").document("1")
+
+        Intent intent = getIntent();
+        if(intent != null) {
+            Placar = intent.getIntExtra("placar", 0);
+            Questao = intent.getIntExtra("questaoEscolhida", 0);
+            }else {
+            Placar = 0;
+            Questao = 1;
+        }
+
+        tv_placar = findViewById(R.id.placar);
+        tv_placar.setText(String.valueOf(Placar));
+
+
+        numeroQuestao = findViewById(R.id.n_questao);
+        numeroQuestao.setText(String.valueOf(Questao));
+
+
+        Random indice_questao = new Random();
+        int questao_escolhida = indice_questao.nextInt(3);
+        String questao_aleatoria =String.valueOf(questao_escolhida);
+
+
+              db.collection("DesenvolvimentoWeb").document(questao_aleatoria)
                .addSnapshotListener((documento, error) -> {
                    if (documento!=null){
                        questao = documento.getString("questao");
@@ -62,7 +91,6 @@ public class DwQuestoes extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String resposta = "";
-                int Placar = 0;
 
                     if (!(a.isChecked()||b.isChecked()||c.isChecked()||d.isChecked()||e.isChecked())){
                     Toast.makeText(DwQuestoes.this, "É necessario selecionar uma ersposta!", Toast.LENGTH_SHORT).show();
@@ -72,23 +100,58 @@ public class DwQuestoes extends AppCompatActivity {
                    if (a.isChecked() && resp1.equals(respcorreta)) {
                         resposta = "Acertou !";
                         Placar += 1;
+                       a.setEnabled(false);
+                       a.setTextColor(Color.parseColor("#006400"));
+                       a.setText(resp1 + " RESPOSTA CORRETA!");
+                       b.setEnabled(false);
+                       c.setEnabled(false);
+                       d.setEnabled(false);
+                       e.setEnabled(false);
 
 
                     }else if (b.isChecked() && resp2.equals(respcorreta)) {
                         resposta = "Acertou !";
                         Placar += 1;
+                       b.setEnabled(false);
+                       b.setTextColor(Color.parseColor("#006400"));
+                       b.setText(resp1 + " RESPOSTA CORRETA!");
+                       a.setEnabled(false);
+                       c.setEnabled(false);
+                       d.setEnabled(false);
+                       e.setEnabled(false);
 
                     }else if (c.isChecked() && resp3.equals(respcorreta)) {
                         resposta = "Acertou !";
                         Placar += 1;
+                       c.setEnabled(false);
+                       c.setTextColor(Color.parseColor("#006400"));
+                       c.setText(resp1 + " RESPOSTA CORRETA!");
+                       a.setEnabled(false);
+                       b.setEnabled(false);
+                       d.setEnabled(false);
+                       e.setEnabled(false);
 
                     }else if (d.isChecked() && resp4.equals(respcorreta)) {
                         resposta = "Acertou !";
                         Placar += 1;
+                       d.setEnabled(false);
+                       d.setTextColor(Color.parseColor("#006400"));
+                       d.setText(resp1 + " RESPOSTA CORRETA!");
+                       a.setEnabled(false);
+                       b.setEnabled(false);
+                       c.setEnabled(false);
+                       e.setEnabled(false);
 
                     }else if (e.isChecked() && resp5.equals(respcorreta)) {
                         resposta = "Acertou !";
                         Placar += 1;
+                       e.setEnabled(false);
+                       e.setTextColor(Color.parseColor("#006400"));
+                       e.setText(resp1 + " RESPOSTA CORRETA!");
+                       a.setEnabled(false);
+                       c.setEnabled(false);
+                       b.setEnabled(false);
+                       d.setEnabled(false);
 
                     }else if (resposta!="Acertou !"){
                         Placar += 0;
@@ -100,7 +163,7 @@ public class DwQuestoes extends AppCompatActivity {
                     a.setTextColor(Color.parseColor("#006400"));
                     a.setText(resp1 + " RESPOSTA CORRETA!");
                     b.setEnabled(false);
-                    b.setTextColor(Color.parseColor("#006400"));
+                    //b.setTextColor(Color.parseColor("#636161"));
                     c.setEnabled(false);
                     d.setEnabled(false);
                     e.setEnabled(false);
@@ -118,7 +181,7 @@ public class DwQuestoes extends AppCompatActivity {
                         a.setTextColor(Color.parseColor("#006400"));
                         a.setText(resp1 + " RESPOSTA CORRETA!");
                         b.setEnabled(false);
-                        d.setTextColor(Color.parseColor("#006400"));
+                        //d.setTextColor(Color.parseColor("#006400"));
                         c.setEnabled(false);
                         d.setEnabled(false);
                         e.setEnabled(false);
@@ -127,7 +190,7 @@ public class DwQuestoes extends AppCompatActivity {
                         a.setTextColor(Color.parseColor("#006400"));
                         a.setText(resp1 + " RESPOSTA CORRETA!");
                         b.setEnabled(false);
-                        e.setTextColor(Color.parseColor("#006400"));
+                        //e.setTextColor(Color.parseColor("#006400"));
                         c.setEnabled(false);
                         d.setEnabled(false);
                         e.setEnabled(false);}
@@ -138,7 +201,7 @@ public class DwQuestoes extends AppCompatActivity {
                         b.setTextColor(Color.parseColor("#006400"));
                         b.setText(resp1 + " RESPOSTA CORRETA!");
                         b.setEnabled(false);
-                        a.setTextColor(Color.parseColor("#006400"));
+                        //a.setTextColor(Color.parseColor("#006400"));
                         c.setEnabled(false);
                         d.setEnabled(false);
                         e.setEnabled(false);
@@ -147,7 +210,7 @@ public class DwQuestoes extends AppCompatActivity {
                         b.setTextColor(Color.parseColor("#006400"));
                         b.setText(resp1 + " RESPOSTA CORRETA!");
                         b.setEnabled(false);
-                        c.setTextColor(Color.parseColor("#006400"));
+                        //c.setTextColor(Color.parseColor("#006400"));
                         c.setEnabled(false);
                         d.setEnabled(false);
                         e.setEnabled(false);
@@ -156,7 +219,7 @@ public class DwQuestoes extends AppCompatActivity {
                         b.setTextColor(Color.parseColor("#006400"));
                         b.setText(resp1 + " RESPOSTA CORRETA!");
                         b.setEnabled(false);
-                        d.setTextColor(Color.parseColor("#006400"));
+                        //d.setTextColor(Color.parseColor("#006400"));
                         c.setEnabled(false);
                         d.setEnabled(false);
                         e.setEnabled(false);
@@ -165,7 +228,7 @@ public class DwQuestoes extends AppCompatActivity {
                         b.setTextColor(Color.parseColor("#006400"));
                         b.setText(resp1 + " RESPOSTA CORRETA!");
                         b.setEnabled(false);
-                        e.setTextColor(Color.parseColor("#006400"));
+                        //e.setTextColor(Color.parseColor("#006400"));
                         c.setEnabled(false);
                         d.setEnabled(false);
                         e.setEnabled(false);}
@@ -176,7 +239,7 @@ public class DwQuestoes extends AppCompatActivity {
                         c.setTextColor(Color.parseColor("#006400"));
                         c.setText(resp1 + " RESPOSTA CORRETA!");
                         b.setEnabled(false);
-                        b.setTextColor(Color.parseColor("#006400"));
+                        //b.setTextColor(Color.parseColor("#006400"));
                         c.setEnabled(false);
                         d.setEnabled(false);
                         e.setEnabled(false);
@@ -185,7 +248,7 @@ public class DwQuestoes extends AppCompatActivity {
                         c.setTextColor(Color.parseColor("#006400"));
                         c.setText(resp1 + " RESPOSTA CORRETA!");
                         b.setEnabled(false);
-                        c.setTextColor(Color.parseColor("#006400"));
+                        //c.setTextColor(Color.parseColor("#006400"));
                         c.setEnabled(false);
                         d.setEnabled(false);
                         e.setEnabled(false);
@@ -194,7 +257,7 @@ public class DwQuestoes extends AppCompatActivity {
                         c.setTextColor(Color.parseColor("#006400"));
                         c.setText(resp1 + " RESPOSTA CORRETA!");
                         b.setEnabled(false);
-                        d.setTextColor(Color.parseColor("#006400"));
+                        //d.setTextColor(Color.parseColor("#006400"));
                         c.setEnabled(false);
                         d.setEnabled(false);
                         e.setEnabled(false);
@@ -203,7 +266,7 @@ public class DwQuestoes extends AppCompatActivity {
                         c.setTextColor(Color.parseColor("#006400"));
                         c.setText(resp1 + " RESPOSTA CORRETA!");
                         b.setEnabled(false);
-                        e.setTextColor(Color.parseColor("#006400"));
+                        //e.setTextColor(Color.parseColor("#006400"));
                         c.setEnabled(false);
                         d.setEnabled(false);
                         e.setEnabled(false);}
@@ -214,7 +277,7 @@ public class DwQuestoes extends AppCompatActivity {
                         d.setTextColor(Color.parseColor("#006400"));
                         d.setText(resp1 + " RESPOSTA CORRETA!");
                         b.setEnabled(false);
-                        b.setTextColor(Color.parseColor("#006400"));
+                        //b.setTextColor(Color.parseColor("#006400"));
                         c.setEnabled(false);
                         d.setEnabled(false);
                         e.setEnabled(false);
@@ -223,7 +286,7 @@ public class DwQuestoes extends AppCompatActivity {
                         d.setTextColor(Color.parseColor("#006400"));
                         d.setText(resp1 + " RESPOSTA CORRETA!");
                         b.setEnabled(false);
-                        c.setTextColor(Color.parseColor("#006400"));
+                        //c.setTextColor(Color.parseColor("#006400"));
                         c.setEnabled(false);
                         d.setEnabled(false);
                         e.setEnabled(false);
@@ -232,7 +295,7 @@ public class DwQuestoes extends AppCompatActivity {
                         d.setTextColor(Color.parseColor("#006400"));
                         d.setText(resp1 + " RESPOSTA CORRETA!");
                         b.setEnabled(false);
-                        d.setTextColor(Color.parseColor("#006400"));
+                        //d.setTextColor(Color.parseColor("#006400"));
                         c.setEnabled(false);
                         d.setEnabled(false);
                         e.setEnabled(false);
@@ -241,7 +304,7 @@ public class DwQuestoes extends AppCompatActivity {
                         d.setTextColor(Color.parseColor("#006400"));
                         d.setText(resp1 + " RESPOSTA CORRETA!");
                         b.setEnabled(false);
-                        e.setTextColor(Color.parseColor("#006400"));
+                        //e.setTextColor(Color.parseColor("#006400"));
                         c.setEnabled(false);
                         d.setEnabled(false);
                         e.setEnabled(false);}
@@ -252,7 +315,7 @@ public class DwQuestoes extends AppCompatActivity {
                         e.setTextColor(Color.parseColor("#006400"));
                         e.setText(resp1 + " RESPOSTA CORRETA!");
                         b.setEnabled(false);
-                        b.setTextColor(Color.parseColor("#006400"));
+                        //b.setTextColor(Color.parseColor("#006400"));
                         c.setEnabled(false);
                         d.setEnabled(false);
                         e.setEnabled(false);
@@ -261,7 +324,7 @@ public class DwQuestoes extends AppCompatActivity {
                         e.setTextColor(Color.parseColor("#006400"));
                         e.setText(resp1 + " RESPOSTA CORRETA!");
                         b.setEnabled(false);
-                        c.setTextColor(Color.parseColor("#006400"));
+                        //c.setTextColor(Color.parseColor("#006400"));
                         c.setEnabled(false);
                         d.setEnabled(false);
                         e.setEnabled(false);
@@ -270,7 +333,7 @@ public class DwQuestoes extends AppCompatActivity {
                         e.setTextColor(Color.parseColor("#006400"));
                         e.setText(resp1 + " RESPOSTA CORRETA!");
                         b.setEnabled(false);
-                        d.setTextColor(Color.parseColor("#006400"));
+                        //d.setTextColor(Color.parseColor("#006400"));
                         c.setEnabled(false);
                         d.setEnabled(false);
                         e.setEnabled(false);
@@ -279,7 +342,7 @@ public class DwQuestoes extends AppCompatActivity {
                         e.setTextColor(Color.parseColor("#006400"));
                         e.setText(resp1 + " RESPOSTA CORRETA!");
                         b.setEnabled(false);
-                        e.setTextColor(Color.parseColor("#006400"));
+                        //e.setTextColor(Color.parseColor("#006400"));
                         c.setEnabled(false);
                         d.setEnabled(false);
                         e.setEnabled(false);}
@@ -294,6 +357,16 @@ public class DwQuestoes extends AppCompatActivity {
 
 
 
+            }
+        });
+        bt_continuar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Questao+=1;
+                Intent i = new Intent(DwQuestoes.this,DesenvolvimentoWeb.class);
+                i.putExtra("placar",Placar);
+                i.putExtra("questaoEscolhida",Questao);
+                startActivity(i);
             }
         });
 
