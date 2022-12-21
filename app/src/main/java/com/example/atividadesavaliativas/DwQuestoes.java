@@ -14,6 +14,9 @@ import android.widget.Toast;
 
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class DwQuestoes extends AppCompatActivity {
@@ -26,12 +29,14 @@ public class DwQuestoes extends AppCompatActivity {
     FirebaseFirestore db;
     int Placar ;
     int Questao ;
+    int questao_escolhida ;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dw_questoes);
+        getSupportActionBar().hide();
         db = FirebaseFirestore.getInstance();
         bt_resposta = findViewById(R.id.bt_resp);
         bt_continuar = findViewById(R.id.bt_continuar);
@@ -61,11 +66,10 @@ public class DwQuestoes extends AppCompatActivity {
         numeroQuestao = findViewById(R.id.n_questao);
         numeroQuestao.setText(String.valueOf(Questao));
 
+       /* Random indice_questao = new Random();
+        int questao_escolhida = indice_questao.nextInt(3);*/
 
-        Random indice_questao = new Random();
-        int questao_escolhida = indice_questao.nextInt(3);
-        String questao_aleatoria =String.valueOf(questao_escolhida);
-
+        String questao_aleatoria =String.valueOf(Questao);
 
               db.collection("DesenvolvimentoWeb").document(questao_aleatoria)
                .addSnapshotListener((documento, error) -> {
@@ -352,21 +356,20 @@ public class DwQuestoes extends AppCompatActivity {
                 //Toast.makeText(DwQuestao1.this, "Selecionado"+resposta, Toast.LENGTH_SHORT).show();
                 String placar = Integer.toString(Placar);
                 tv_placar.setText(placar);
-                tv_resposta.setText(resposta);
-
-
-
-
-            }
+                tv_resposta.setText(resposta); }
         });
         bt_continuar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (!(a.isChecked()||b.isChecked()||c.isChecked()||d.isChecked()||e.isChecked())){
+                    Toast.makeText(DwQuestoes.this, "É necessario selecionar uma ersposta!", Toast.LENGTH_SHORT).show();
+                    return;
+                }else{
                 Questao+=1;
                 Intent i = new Intent(DwQuestoes.this,DesenvolvimentoWeb.class);
                 i.putExtra("placar",Placar);
                 i.putExtra("questaoEscolhida",Questao);
-                startActivity(i);
+                startActivity(i);}
             }
         });
 
