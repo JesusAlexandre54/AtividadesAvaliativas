@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.view.View;
+
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -13,11 +13,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.firestore.FirebaseFirestore;
-
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
 
 public class DwQuestoes extends AppCompatActivity {
     RadioButton a,b,c,d,e;
@@ -29,7 +24,8 @@ public class DwQuestoes extends AppCompatActivity {
     FirebaseFirestore db;
     int Placar ;
     int Questao ;
-    int questao_escolhida ;
+    String resposta="";
+
 
 
     @Override
@@ -66,8 +62,6 @@ public class DwQuestoes extends AppCompatActivity {
         numeroQuestao = findViewById(R.id.n_questao);
         numeroQuestao.setText(String.valueOf(Questao));
 
-       /* Random indice_questao = new Random();
-        int questao_escolhida = indice_questao.nextInt(3);*/
 
         String questao_aleatoria =String.valueOf(Questao);
 
@@ -91,286 +85,289 @@ public class DwQuestoes extends AppCompatActivity {
 
                    }
                });
-        bt_resposta.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String resposta = "";
-
-                    if (!(a.isChecked()||b.isChecked()||c.isChecked()||d.isChecked()||e.isChecked())){
-                    Toast.makeText(DwQuestoes.this, "É necessario selecionar uma ersposta!", Toast.LENGTH_SHORT).show();
-                    return;
-                   }else{
-
-                   if (a.isChecked() && resp1.equals(respcorreta)) {
-                        resposta = "Acertou !";
-                        Placar += 1;
-                       a.setEnabled(false);
-                       a.setTextColor(Color.parseColor("#006400"));
-                       a.setText(resp1 + " RESPOSTA CORRETA!");
-                       b.setEnabled(false);
-                       c.setEnabled(false);
-                       d.setEnabled(false);
-                       e.setEnabled(false);
+        bt_resposta.setOnClickListener(view -> {
 
 
-                    }else if (b.isChecked() && resp2.equals(respcorreta)) {
-                        resposta = "Acertou !";
-                        Placar += 1;
-                       b.setEnabled(false);
-                       b.setTextColor(Color.parseColor("#006400"));
-                       b.setText(resp1 + " RESPOSTA CORRETA!");
-                       a.setEnabled(false);
-                       c.setEnabled(false);
-                       d.setEnabled(false);
-                       e.setEnabled(false);
+                if (!(a.isChecked()||b.isChecked()||c.isChecked()||d.isChecked()||e.isChecked())){
+                Toast.makeText(DwQuestoes.this, "É necessario selecionar uma ersposta!", Toast.LENGTH_SHORT).show();
+                return;
+               }else{
 
-                    }else if (c.isChecked() && resp3.equals(respcorreta)) {
-                        resposta = "Acertou !";
-                        Placar += 1;
-                       c.setEnabled(false);
-                       c.setTextColor(Color.parseColor("#006400"));
-                       c.setText(resp1 + " RESPOSTA CORRETA!");
-                       a.setEnabled(false);
-                       b.setEnabled(false);
-                       d.setEnabled(false);
-                       e.setEnabled(false);
+               if (a.isChecked() && resp1.equals(respcorreta)) {
+                    resposta = "Acertou !";
+                    Placar += 1;
+                   a.setEnabled(false);
+                   a.setTextColor(Color.parseColor("#006400"));
+                   a.setText(resp1 + " RESPOSTA CORRETA!");
+                   b.setEnabled(false);
+                   c.setEnabled(false);
+                   d.setEnabled(false);
+                   e.setEnabled(false);
 
-                    }else if (d.isChecked() && resp4.equals(respcorreta)) {
-                        resposta = "Acertou !";
-                        Placar += 1;
-                       d.setEnabled(false);
-                       d.setTextColor(Color.parseColor("#006400"));
-                       d.setText(resp1 + " RESPOSTA CORRETA!");
-                       a.setEnabled(false);
-                       b.setEnabled(false);
-                       c.setEnabled(false);
-                       e.setEnabled(false);
 
-                    }else if (e.isChecked() && resp5.equals(respcorreta)) {
-                        resposta = "Acertou !";
-                        Placar += 1;
-                       e.setEnabled(false);
-                       e.setTextColor(Color.parseColor("#006400"));
-                       e.setText(resp1 + " RESPOSTA CORRETA!");
-                       a.setEnabled(false);
-                       c.setEnabled(false);
-                       b.setEnabled(false);
-                       d.setEnabled(false);
+                }else if (b.isChecked() && resp2.equals(respcorreta)) {
+                    resposta = "Acertou !";
+                    Placar += 1;
+                   b.setEnabled(false);
+                   b.setTextColor(Color.parseColor("#006400"));
+                   b.setText(resp1 + " RESPOSTA CORRETA!");
+                   a.setEnabled(false);
+                   c.setEnabled(false);
+                   d.setEnabled(false);
+                   e.setEnabled(false);
 
-                    }else if (resposta!="Acertou !"){
-                        Placar += 0;
-                        resposta = "Errou !"; }
-                    }
-                if (resp1.equals(respcorreta)){
-                    if (b.isChecked()){
+                }else if (c.isChecked() && resp3.equals(respcorreta)) {
+                    resposta = "Acertou !";
+                    Placar += 1;
+                   c.setEnabled(false);
+                   c.setTextColor(Color.parseColor("#006400"));
+                   c.setText(resp1 + " RESPOSTA CORRETA!");
+                   a.setEnabled(false);
+                   b.setEnabled(false);
+                   d.setEnabled(false);
+                   e.setEnabled(false);
+
+                }else if (d.isChecked() && resp4.equals(respcorreta)) {
+                    resposta = "Acertou !";
+                    Placar += 1;
+                   d.setEnabled(false);
+                   d.setTextColor(Color.parseColor("#006400"));
+                   d.setText(resp1 + " RESPOSTA CORRETA!");
+                   a.setEnabled(false);
+                   b.setEnabled(false);
+                   c.setEnabled(false);
+                   e.setEnabled(false);
+
+                }else if (e.isChecked() && resp5.equals(respcorreta)) {
+                    resposta = "Acertou !";
+                    Placar += 1;
+                   e.setEnabled(false);
+                   e.setTextColor(Color.parseColor("#006400"));
+                   e.setText(resp1 + " RESPOSTA CORRETA!");
+                   a.setEnabled(false);
+                   c.setEnabled(false);
+                   b.setEnabled(false);
+                   d.setEnabled(false);
+
+                }else if (resposta!="Acertou !"){
+                    Placar += 0;
+                    resposta = "Errou !"; }
+                }
+            if (resp1.equals(respcorreta)){
+                if (b.isChecked()){
+                a.setEnabled(false);
+                a.setTextColor(Color.parseColor("#006400"));
+                a.setText(resp1 + " RESPOSTA CORRETA!");
+                b.setEnabled(false);
+                //b.setTextColor(Color.parseColor("#636161"));
+                c.setEnabled(false);
+                d.setEnabled(false);
+                e.setEnabled(false);
+                }else if (c.isChecked()){
                     a.setEnabled(false);
                     a.setTextColor(Color.parseColor("#006400"));
                     a.setText(resp1 + " RESPOSTA CORRETA!");
                     b.setEnabled(false);
-                    //b.setTextColor(Color.parseColor("#636161"));
+                    c.setTextColor(Color.parseColor("#006400"));
                     c.setEnabled(false);
                     d.setEnabled(false);
                     e.setEnabled(false);
-                    }else if (c.isChecked()){
-                        a.setEnabled(false);
-                        a.setTextColor(Color.parseColor("#006400"));
-                        a.setText(resp1 + " RESPOSTA CORRETA!");
-                        b.setEnabled(false);
-                        c.setTextColor(Color.parseColor("#006400"));
-                        c.setEnabled(false);
-                        d.setEnabled(false);
-                        e.setEnabled(false);
-                    }else if (d.isChecked()){
-                        a.setEnabled(false);
-                        a.setTextColor(Color.parseColor("#006400"));
-                        a.setText(resp1 + " RESPOSTA CORRETA!");
-                        b.setEnabled(false);
-                        //d.setTextColor(Color.parseColor("#006400"));
-                        c.setEnabled(false);
-                        d.setEnabled(false);
-                        e.setEnabled(false);
-                    }else if (e.isChecked()){
-                        a.setEnabled(false);
-                        a.setTextColor(Color.parseColor("#006400"));
-                        a.setText(resp1 + " RESPOSTA CORRETA!");
-                        b.setEnabled(false);
-                        //e.setTextColor(Color.parseColor("#006400"));
-                        c.setEnabled(false);
-                        d.setEnabled(false);
-                        e.setEnabled(false);}
-                }
-                if (resp2.equals(respcorreta)){
-                    if (a.isChecked()){
-                        a.setEnabled(false);
-                        b.setTextColor(Color.parseColor("#006400"));
-                        b.setText(resp1 + " RESPOSTA CORRETA!");
-                        b.setEnabled(false);
-                        //a.setTextColor(Color.parseColor("#006400"));
-                        c.setEnabled(false);
-                        d.setEnabled(false);
-                        e.setEnabled(false);
-                    }else if (c.isChecked()){
-                        a.setEnabled(false);
-                        b.setTextColor(Color.parseColor("#006400"));
-                        b.setText(resp1 + " RESPOSTA CORRETA!");
-                        b.setEnabled(false);
-                        //c.setTextColor(Color.parseColor("#006400"));
-                        c.setEnabled(false);
-                        d.setEnabled(false);
-                        e.setEnabled(false);
-                    }else if (d.isChecked()){
-                        a.setEnabled(false);
-                        b.setTextColor(Color.parseColor("#006400"));
-                        b.setText(resp1 + " RESPOSTA CORRETA!");
-                        b.setEnabled(false);
-                        //d.setTextColor(Color.parseColor("#006400"));
-                        c.setEnabled(false);
-                        d.setEnabled(false);
-                        e.setEnabled(false);
-                    }else if (e.isChecked()){
-                        a.setEnabled(false);
-                        b.setTextColor(Color.parseColor("#006400"));
-                        b.setText(resp1 + " RESPOSTA CORRETA!");
-                        b.setEnabled(false);
-                        //e.setTextColor(Color.parseColor("#006400"));
-                        c.setEnabled(false);
-                        d.setEnabled(false);
-                        e.setEnabled(false);}
-                }
-                if (resp3.equals(respcorreta)){
-                    if (b.isChecked()){
-                        a.setEnabled(false);
-                        c.setTextColor(Color.parseColor("#006400"));
-                        c.setText(resp1 + " RESPOSTA CORRETA!");
-                        b.setEnabled(false);
-                        //b.setTextColor(Color.parseColor("#006400"));
-                        c.setEnabled(false);
-                        d.setEnabled(false);
-                        e.setEnabled(false);
-                    }else if (c.isChecked()){
-                        a.setEnabled(false);
-                        c.setTextColor(Color.parseColor("#006400"));
-                        c.setText(resp1 + " RESPOSTA CORRETA!");
-                        b.setEnabled(false);
-                        //c.setTextColor(Color.parseColor("#006400"));
-                        c.setEnabled(false);
-                        d.setEnabled(false);
-                        e.setEnabled(false);
-                    }else if (d.isChecked()){
-                        a.setEnabled(false);
-                        c.setTextColor(Color.parseColor("#006400"));
-                        c.setText(resp1 + " RESPOSTA CORRETA!");
-                        b.setEnabled(false);
-                        //d.setTextColor(Color.parseColor("#006400"));
-                        c.setEnabled(false);
-                        d.setEnabled(false);
-                        e.setEnabled(false);
-                    }else if (e.isChecked()){
-                        a.setEnabled(false);
-                        c.setTextColor(Color.parseColor("#006400"));
-                        c.setText(resp1 + " RESPOSTA CORRETA!");
-                        b.setEnabled(false);
-                        //e.setTextColor(Color.parseColor("#006400"));
-                        c.setEnabled(false);
-                        d.setEnabled(false);
-                        e.setEnabled(false);}
-                }
-                if (resp4.equals(respcorreta)){
-                    if (b.isChecked()){
-                        a.setEnabled(false);
-                        d.setTextColor(Color.parseColor("#006400"));
-                        d.setText(resp1 + " RESPOSTA CORRETA!");
-                        b.setEnabled(false);
-                        //b.setTextColor(Color.parseColor("#006400"));
-                        c.setEnabled(false);
-                        d.setEnabled(false);
-                        e.setEnabled(false);
-                    }else if (c.isChecked()){
-                        a.setEnabled(false);
-                        d.setTextColor(Color.parseColor("#006400"));
-                        d.setText(resp1 + " RESPOSTA CORRETA!");
-                        b.setEnabled(false);
-                        //c.setTextColor(Color.parseColor("#006400"));
-                        c.setEnabled(false);
-                        d.setEnabled(false);
-                        e.setEnabled(false);
-                    }else if (d.isChecked()){
-                        a.setEnabled(false);
-                        d.setTextColor(Color.parseColor("#006400"));
-                        d.setText(resp1 + " RESPOSTA CORRETA!");
-                        b.setEnabled(false);
-                        //d.setTextColor(Color.parseColor("#006400"));
-                        c.setEnabled(false);
-                        d.setEnabled(false);
-                        e.setEnabled(false);
-                    }else if (e.isChecked()){
-                        a.setEnabled(false);
-                        d.setTextColor(Color.parseColor("#006400"));
-                        d.setText(resp1 + " RESPOSTA CORRETA!");
-                        b.setEnabled(false);
-                        //e.setTextColor(Color.parseColor("#006400"));
-                        c.setEnabled(false);
-                        d.setEnabled(false);
-                        e.setEnabled(false);}
-                }
-                if (resp5.equals(respcorreta)){
-                    if (b.isChecked()){
-                        a.setEnabled(false);
-                        e.setTextColor(Color.parseColor("#006400"));
-                        e.setText(resp1 + " RESPOSTA CORRETA!");
-                        b.setEnabled(false);
-                        //b.setTextColor(Color.parseColor("#006400"));
-                        c.setEnabled(false);
-                        d.setEnabled(false);
-                        e.setEnabled(false);
-                    }else if (c.isChecked()){
-                        a.setEnabled(false);
-                        e.setTextColor(Color.parseColor("#006400"));
-                        e.setText(resp1 + " RESPOSTA CORRETA!");
-                        b.setEnabled(false);
-                        //c.setTextColor(Color.parseColor("#006400"));
-                        c.setEnabled(false);
-                        d.setEnabled(false);
-                        e.setEnabled(false);
-                    }else if (d.isChecked()){
-                        a.setEnabled(false);
-                        e.setTextColor(Color.parseColor("#006400"));
-                        e.setText(resp1 + " RESPOSTA CORRETA!");
-                        b.setEnabled(false);
-                        //d.setTextColor(Color.parseColor("#006400"));
-                        c.setEnabled(false);
-                        d.setEnabled(false);
-                        e.setEnabled(false);
-                    }else if (e.isChecked()){
-                        a.setEnabled(false);
-                        e.setTextColor(Color.parseColor("#006400"));
-                        e.setText(resp1 + " RESPOSTA CORRETA!");
-                        b.setEnabled(false);
-                        //e.setTextColor(Color.parseColor("#006400"));
-                        c.setEnabled(false);
-                        d.setEnabled(false);
-                        e.setEnabled(false);}
-                }
-
-
-                //Toast.makeText(DwQuestao1.this, "Selecionado"+resposta, Toast.LENGTH_SHORT).show();
-                String placar = Integer.toString(Placar);
-                tv_placar.setText(placar);
-                tv_resposta.setText(resposta); }
-        });
-        bt_continuar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (!(a.isChecked()||b.isChecked()||c.isChecked()||d.isChecked()||e.isChecked())){
-                    Toast.makeText(DwQuestoes.this, "É necessario selecionar uma ersposta!", Toast.LENGTH_SHORT).show();
-                    return;
-                }else{
-                Questao+=1;
-                Intent i = new Intent(DwQuestoes.this,DesenvolvimentoWeb.class);
-                i.putExtra("placar",Placar);
-                i.putExtra("questaoEscolhida",Questao);
-                startActivity(i);}
+                }else if (d.isChecked()){
+                    a.setEnabled(false);
+                    a.setTextColor(Color.parseColor("#006400"));
+                    a.setText(resp1 + " RESPOSTA CORRETA!");
+                    b.setEnabled(false);
+                    //d.setTextColor(Color.parseColor("#006400"));
+                    c.setEnabled(false);
+                    d.setEnabled(false);
+                    e.setEnabled(false);
+                }else if (e.isChecked()){
+                    a.setEnabled(false);
+                    a.setTextColor(Color.parseColor("#006400"));
+                    a.setText(resp1 + " RESPOSTA CORRETA!");
+                    b.setEnabled(false);
+                    //e.setTextColor(Color.parseColor("#006400"));
+                    c.setEnabled(false);
+                    d.setEnabled(false);
+                    e.setEnabled(false);}
             }
+            if (resp2.equals(respcorreta)){
+                if (a.isChecked()){
+                    a.setEnabled(false);
+                    b.setTextColor(Color.parseColor("#006400"));
+                    b.setText(resp1 + " RESPOSTA CORRETA!");
+                    b.setEnabled(false);
+                    //a.setTextColor(Color.parseColor("#006400"));
+                    c.setEnabled(false);
+                    d.setEnabled(false);
+                    e.setEnabled(false);
+                }else if (c.isChecked()){
+                    a.setEnabled(false);
+                    b.setTextColor(Color.parseColor("#006400"));
+                    b.setText(resp1 + " RESPOSTA CORRETA!");
+                    b.setEnabled(false);
+                    //c.setTextColor(Color.parseColor("#006400"));
+                    c.setEnabled(false);
+                    d.setEnabled(false);
+                    e.setEnabled(false);
+                }else if (d.isChecked()){
+                    a.setEnabled(false);
+                    b.setTextColor(Color.parseColor("#006400"));
+                    b.setText(resp1 + " RESPOSTA CORRETA!");
+                    b.setEnabled(false);
+                    //d.setTextColor(Color.parseColor("#006400"));
+                    c.setEnabled(false);
+                    d.setEnabled(false);
+                    e.setEnabled(false);
+                }else if (e.isChecked()){
+                    a.setEnabled(false);
+                    b.setTextColor(Color.parseColor("#006400"));
+                    b.setText(resp1 + " RESPOSTA CORRETA!");
+                    b.setEnabled(false);
+                    //e.setTextColor(Color.parseColor("#006400"));
+                    c.setEnabled(false);
+                    d.setEnabled(false);
+                    e.setEnabled(false);}
+            }
+            if (resp3.equals(respcorreta)){
+                if (b.isChecked()){
+                    a.setEnabled(false);
+                    c.setTextColor(Color.parseColor("#006400"));
+                    c.setText(resp1 + " RESPOSTA CORRETA!");
+                    b.setEnabled(false);
+                    //b.setTextColor(Color.parseColor("#006400"));
+                    c.setEnabled(false);
+                    d.setEnabled(false);
+                    e.setEnabled(false);
+                }else if (c.isChecked()){
+                    a.setEnabled(false);
+                    c.setTextColor(Color.parseColor("#006400"));
+                    c.setText(resp1 + " RESPOSTA CORRETA!");
+                    b.setEnabled(false);
+                    //c.setTextColor(Color.parseColor("#006400"));
+                    c.setEnabled(false);
+                    d.setEnabled(false);
+                    e.setEnabled(false);
+                }else if (d.isChecked()){
+                    a.setEnabled(false);
+                    c.setTextColor(Color.parseColor("#006400"));
+                    c.setText(resp1 + " RESPOSTA CORRETA!");
+                    b.setEnabled(false);
+                    //d.setTextColor(Color.parseColor("#006400"));
+                    c.setEnabled(false);
+                    d.setEnabled(false);
+                    e.setEnabled(false);
+                }else if (e.isChecked()){
+                    a.setEnabled(false);
+                    c.setTextColor(Color.parseColor("#006400"));
+                    c.setText(resp1 + " RESPOSTA CORRETA!");
+                    b.setEnabled(false);
+                    //e.setTextColor(Color.parseColor("#006400"));
+                    c.setEnabled(false);
+                    d.setEnabled(false);
+                    e.setEnabled(false);}
+            }
+            if (resp4.equals(respcorreta)){
+                if (b.isChecked()){
+                    a.setEnabled(false);
+                    d.setTextColor(Color.parseColor("#006400"));
+                    d.setText(resp1 + " RESPOSTA CORRETA!");
+                    b.setEnabled(false);
+                    //b.setTextColor(Color.parseColor("#006400"));
+                    c.setEnabled(false);
+                    d.setEnabled(false);
+                    e.setEnabled(false);
+                }else if (c.isChecked()){
+                    a.setEnabled(false);
+                    d.setTextColor(Color.parseColor("#006400"));
+                    d.setText(resp1 + " RESPOSTA CORRETA!");
+                    b.setEnabled(false);
+                    //c.setTextColor(Color.parseColor("#006400"));
+                    c.setEnabled(false);
+                    d.setEnabled(false);
+                    e.setEnabled(false);
+                }else if (d.isChecked()){
+                    a.setEnabled(false);
+                    d.setTextColor(Color.parseColor("#006400"));
+                    d.setText(resp1 + " RESPOSTA CORRETA!");
+                    b.setEnabled(false);
+                    //d.setTextColor(Color.parseColor("#006400"));
+                    c.setEnabled(false);
+                    d.setEnabled(false);
+                    e.setEnabled(false);
+                }else if (e.isChecked()){
+                    a.setEnabled(false);
+                    d.setTextColor(Color.parseColor("#006400"));
+                    d.setText(resp1 + " RESPOSTA CORRETA!");
+                    b.setEnabled(false);
+                    //e.setTextColor(Color.parseColor("#006400"));
+                    c.setEnabled(false);
+                    d.setEnabled(false);
+                    e.setEnabled(false);}
+            }
+            if (resp5.equals(respcorreta)){
+                if (b.isChecked()){
+                    a.setEnabled(false);
+                    e.setTextColor(Color.parseColor("#006400"));
+                    e.setText(resp1 + " RESPOSTA CORRETA!");
+                    b.setEnabled(false);
+                    //b.setTextColor(Color.parseColor("#006400"));
+                    c.setEnabled(false);
+                    d.setEnabled(false);
+                    e.setEnabled(false);
+                }else if (c.isChecked()){
+                    a.setEnabled(false);
+                    e.setTextColor(Color.parseColor("#006400"));
+                    e.setText(resp1 + " RESPOSTA CORRETA!");
+                    b.setEnabled(false);
+                    //c.setTextColor(Color.parseColor("#006400"));
+                    c.setEnabled(false);
+                    d.setEnabled(false);
+                    e.setEnabled(false);
+                }else if (d.isChecked()){
+                    a.setEnabled(false);
+                    e.setTextColor(Color.parseColor("#006400"));
+                    e.setText(resp1 + " RESPOSTA CORRETA!");
+                    b.setEnabled(false);
+                    //d.setTextColor(Color.parseColor("#006400"));
+                    c.setEnabled(false);
+                    d.setEnabled(false);
+                    e.setEnabled(false);
+                }else if (e.isChecked()){
+                    a.setEnabled(false);
+                    e.setTextColor(Color.parseColor("#006400"));
+                    e.setText(resp1 + " RESPOSTA CORRETA!");
+                    b.setEnabled(false);
+                    //e.setTextColor(Color.parseColor("#006400"));
+                    c.setEnabled(false);
+                    d.setEnabled(false);
+                    e.setEnabled(false);}
+            }
+
+
+            //Toast.makeText(DwQuestao1.this, "Selecionado"+resposta, Toast.LENGTH_SHORT).show();
+            String placar = Integer.toString(Placar);
+            tv_placar.setText(placar);
+            tv_resposta.setText(resposta); });
+        bt_continuar.setOnClickListener(view -> {
+
+            if (!(a.isChecked()||b.isChecked()||c.isChecked()||d.isChecked()||e.isChecked())){
+                Toast.makeText(DwQuestoes.this, "É necessario selecionar uma ersposta!", Toast.LENGTH_SHORT).show();
+
+            } else if ( resposta == ""){
+
+                Toast.makeText(DwQuestoes.this, "É necessario uma responder antes de continuar!", Toast.LENGTH_SHORT).show();
+
+            }else{
+            Questao+=1;
+
+
+            Intent i = new Intent(DwQuestoes.this,DesenvolvimentoWeb.class);
+            i.putExtra("placar",Placar);
+            i.putExtra("questaoEscolhida",Questao);
+
+
+            startActivity(i);}
         });
 
 
