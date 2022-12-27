@@ -23,12 +23,16 @@
 
     <Button
         android:id="@+id/bt_dw"
+        android:background="@drawable/btn_bg_design"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:text="desenvolvimento web" />
 
     <Button
         android:id="@+id/bt_idh"
+        android:layout_margin="10dp"
+        android:background="@drawable/btn_bg_design"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="ihc" />
