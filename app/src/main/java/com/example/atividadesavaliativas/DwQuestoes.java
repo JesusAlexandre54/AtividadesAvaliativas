@@ -4,15 +4,20 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.Objects;
@@ -22,12 +27,13 @@ public class DwQuestoes extends AppCompatActivity {
     Button bt_resposta, bt_continuar;
     RadioGroup radioGroup;
     TextView tv_resposta, tv_placar,tv_questao,numeroQuestao;
-    String questao, resp1,resp2,resp3,resp4,resp5,respcorreta;
+    String questao, resp1,resp2,resp3,resp4,resp5,respcorreta,url_image;
     //Firestore
     FirebaseFirestore db;
     int Placar ;
     int Questao ;
     String resposta="";
+    ImageView image_questao;
 
 
 
@@ -44,6 +50,8 @@ public class DwQuestoes extends AppCompatActivity {
         tv_resposta = findViewById(R.id.tv_resp);
         tv_placar = findViewById(R.id.placar);
         tv_questao =findViewById(R.id.tv_questao);
+        image_questao=findViewById(R.id.image_questao);
+
         a = findViewById(R.id.dw_a);
         b = findViewById(R.id.dw_b);
         c = findViewById(R.id.dw_c);
@@ -79,6 +87,7 @@ public class DwQuestoes extends AppCompatActivity {
                        resp4 = documento.getString("resp4");
                        resp5 = documento.getString("resp5");
                        respcorreta = documento.getString("respcorreta");
+                       url_image = documento.getString("img_url");
 
                        tv_questao.setText(questao);
                        a.setText(resp1);
@@ -86,6 +95,11 @@ public class DwQuestoes extends AppCompatActivity {
                        c.setText(resp3);
                        d.setText(resp4);
                        e.setText(resp5);
+
+                       if (url_image != null){
+                           Glide.with(this).load(url_image).into(image_questao);
+                       }
+
 
                    }
                });

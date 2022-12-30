@@ -6,8 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/univesp"
-    android:foreground="@drawable/foreground_design"
-
 
     >
 <LinearLayout
@@ -40,47 +38,54 @@
         android:text="desenvolvimento web" />
 
     <Button
-        android:id="@+id/bt_idh"
+        android:id="@+id/bt_fundamentos"
         android:layout_margin="10dp"
         android:background="@drawable/btn_bg_design"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="ihc" />
+        android:text="FUNDAMENTOS DA INTERNET E WEB" />
     <Button
-        android:id="@+id/bt_idh1"
+        android:id="@+id/bt_pensamento_computacional"
         android:layout_margin="10dp"
         android:background="@drawable/btn_bg_design"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="ihc" />
+        android:text="PENSAMENTO COMPUTACIONAL" />
     <Button
-    android:id="@+id/bt_idh2"
+    android:id="@+id/bt_projetos_e_metodos"
     android:layout_margin="10dp"
     android:background="@drawable/btn_bg_design"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:text="ihc" />
+    android:text="PROJETOS E METODOS PARA PRODUÇÃO" />
     <Button
-    android:id="@+id/bt_idh3"
+    android:id="@+id/bt_estrutura_de_dados"
     android:layout_margin="10dp"
     android:background="@drawable/btn_bg_design"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:text="ihc" />
+    android:text="ESTRUTURA DE DADOS" />
     <Button
-    android:id="@+id/bt_idh4"
+    android:id="@+id/bt_introducao_e_conceitos_de_computacao"
     android:layout_margin="10dp"
     android:background="@drawable/btn_bg_design"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:text="ihc" />
+    android:text="INTRODUÇÃO E CONCEITOS DE COMPUTAÇÃO" />
     <Button
-    android:id="@+id/bt_idh5"
+    android:id="@+id/bt_sistemas_computacionais"
     android:layout_margin="10dp"
     android:background="@drawable/btn_bg_design"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:text="ihc" />
+    android:text="SISTEMAS COMPUTACIONAIS" />
+    <Button
+        android:id="@+id/bt_programacao_orientada_a_objetos"
+        android:layout_margin="10dp"
+        android:background="@drawable/btn_bg_design"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="PROGRAMAÇÃO ORIENTADA A OBJETOS" />
 
 
 </LinearLayout>

@@ -1,25 +1,13 @@
 package com.example.atividadesavaliativas;
-import static android.app.PendingIntent.getActivity;
-
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
-
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import java.util.ArrayList;
-
-
 public class MainActivity extends AppCompatActivity {
-    Button bt_dw,bt_ihc;
+    Button bt_dw;
     FirebaseFirestore db;
     String questao;
 
@@ -30,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         db = FirebaseFirestore.getInstance();
         bt_dw = findViewById(R.id.bt_dw);
-        bt_ihc = findViewById(R.id.bt_idh);
+
 
         db.collection("DesenvolvimentoWeb").document("1")
                 .addSnapshotListener((documento, error) -> {
@@ -48,12 +36,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-        bt_ihc.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(MainActivity.this, ""+questao, Toast.LENGTH_SHORT).show();
-            }
-        });
+
 
     }
 
