@@ -97,6 +97,7 @@ public class DwQuestoes extends AppCompatActivity {
                        e.setText(resp5);
 
                        if (url_image != null){
+                           image_questao.setVisibility(1);
                            Glide.with(this).load(url_image).into(image_questao);
                        }
 
