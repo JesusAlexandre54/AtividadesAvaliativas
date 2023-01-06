@@ -22,7 +22,7 @@ import java.util.Objects;
 
 public class DwQuestoes extends AppCompatActivity {
     RadioButton a,b,c,d,e;
-    Button bt_resposta, bt_continuar;
+    Button bt_resposta, bt_continuar,bt_finalizar;
     RadioGroup radioGroup;
     TextView tv_resposta, tv_placar,tv_questao,numeroQuestao;
     String questao, resp1,resp2,resp3,resp4,resp5,respcorreta,url_image;
@@ -44,6 +44,7 @@ public class DwQuestoes extends AppCompatActivity {
         db = FirebaseFirestore.getInstance();
         bt_resposta = findViewById(R.id.bt_resp);
         bt_continuar = findViewById(R.id.bt_continuar);
+        bt_finalizar = findViewById(R.id.bt_fim);
         radioGroup = findViewById(R.id.rd_Group);
         tv_resposta = findViewById(R.id.tv_resp);
         tv_placar = findViewById(R.id.placar);
@@ -121,6 +122,8 @@ public class DwQuestoes extends AppCompatActivity {
                    c.setEnabled(false);
                    d.setEnabled(false);
                    e.setEnabled(false);
+
+
 
 
                 }else if (b.isChecked() && resp2.equals(respcorreta)) {
@@ -398,12 +401,33 @@ public class DwQuestoes extends AppCompatActivity {
                     e.setEnabled(false);}
 
             }
-
+        if (resposta.equals("Acertou !")){
+            tv_resposta.setTextColor( getResources().getColor(R.color.blue));
+        }else if (resposta.equals( "Errou !")){
+            tv_resposta.setTextColor( getResources().getColor(R.color.red));
+        }
 
             //Toast.makeText(DwQuestao1.this, "Selecionado"+resposta, Toast.LENGTH_SHORT).show();
             String placar = Integer.toString(Placar);
             tv_placar.setText(placar);
-            tv_resposta.setText(resposta); });
+            tv_resposta.setText(resposta);
+        bt_resposta.setVisibility(View.GONE);
+        bt_finalizar.setVisibility(View.VISIBLE);
+        });
+
+        bt_finalizar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(DwQuestoes.this,DwFim.class);
+                i.putExtra("placar",Placar);
+                i.putExtra("questaoEscolhida",Questao);
+
+
+                startActivity(i);
+
+            }
+        });
+
         bt_continuar.setOnClickListener(view -> {
 
             if (!(a.isChecked()||b.isChecked()||c.isChecked()||d.isChecked()||e.isChecked())){

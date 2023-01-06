@@ -46,6 +46,7 @@ public class DesenvolvimentoWeb extends AppCompatActivity {
             if (resp1==null){
                 i = new Intent(DesenvolvimentoWeb.this, DwFim.class);
                 i.putExtra("placar", Placar);
+                i.putExtra("questaoEscolhida",Questao);
                 startActivity(i);
 
             }else {

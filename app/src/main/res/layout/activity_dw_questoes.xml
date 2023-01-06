@@ -111,8 +111,17 @@
                 android:layout_width="150sp"
                 android:layout_height="50sp"
                 android:layout_marginLeft="10sp"
+                android:visibility="visible"
                 android:background="@drawable/btn_bg_design"
                 android:text="RESPONDER" />
+            <Button
+                android:id="@+id/bt_fim"
+                android:layout_width="150sp"
+                android:layout_height="50sp"
+                android:visibility="gone"
+                android:layout_marginLeft="10sp"
+                android:background="@drawable/btn_bg_design"
+                android:text="FINALIZAR" />
 
             <Button
                 android:id="@+id/bt_continuar"
@@ -142,6 +151,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="Acertos : "
+                android:textColor="@color/black"
                 android:textSize="20sp" />
 
             <TextView
