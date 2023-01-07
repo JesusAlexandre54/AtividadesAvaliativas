@@ -1,4 +1,4 @@
-package com.example.atividadesavaliativas;
+package com.example.atividadesavaliativas.DesenvolvimentoWeb;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.atividadesavaliativas.R;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.Objects;
@@ -32,9 +33,6 @@ public class DwQuestoes extends AppCompatActivity {
     int Questao ;
     String resposta="";
     ImageView image_questao;
-
-
-
     @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -418,7 +416,7 @@ public class DwQuestoes extends AppCompatActivity {
         bt_finalizar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(DwQuestoes.this,DwFim.class);
+                Intent i = new Intent(DwQuestoes.this, DwFim.class);
                 i.putExtra("placar",Placar);
                 i.putExtra("questaoEscolhida",Questao);
 
@@ -441,7 +439,7 @@ public class DwQuestoes extends AppCompatActivity {
             Questao+=1;
 
 
-            Intent i = new Intent(DwQuestoes.this,DesenvolvimentoWeb.class);
+            Intent i = new Intent(DwQuestoes.this, DesenvolvimentoWeb.class);
             i.putExtra("placar",Placar);
             i.putExtra("questaoEscolhida",Questao);
 

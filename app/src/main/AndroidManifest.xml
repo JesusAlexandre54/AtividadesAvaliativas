@@ -13,21 +13,42 @@
         android:theme="@style/Theme.AtividadesAvaliativas"
         tools:targetApi="31">
         <activity
-            android:name=".DwFim"
+            android:name=".FundamentosInternetWeb.FiwQuestoes"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".DwQuestoes"
+            android:name=".FundamentosInternetWeb.FiwFim"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".DesenvolvimentoWeb"
+            android:name=".FundamentosInternetWeb.FundamentosInternetWeb"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".DesenvolvimentoWeb.DwFim"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".DesenvolvimentoWeb.DwQuestoes"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".DesenvolvimentoWeb.DesenvolvimentoWeb"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
