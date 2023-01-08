@@ -40,7 +40,7 @@ public class FundamentosInternetWeb extends AppCompatActivity {
 
         }
         String questao_aleatoria =String.valueOf(Questao);
-        db.collection("DesenvolvimentoWeb").document(questao_aleatoria)
+        db.collection("FundamentosInternetWeb").document(questao_aleatoria)
                 .addSnapshotListener((documento, error) -> {
                     if (documento!=null){
                         resp1 = documento.getString("resp1");
