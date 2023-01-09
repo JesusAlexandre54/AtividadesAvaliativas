@@ -6,10 +6,11 @@ import android.widget.Button;
 
 import com.example.atividadesavaliativas.DesenvolvimentoWeb.DesenvolvimentoWeb;
 import com.example.atividadesavaliativas.FundamentosInternetWeb.FundamentosInternetWeb;
+import com.example.atividadesavaliativas.PensamentoComputacional.PensamentoComputacional;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class MainActivity extends AppCompatActivity {
-    Button bt_dw,bt_fiw;
+    Button bt_dw,bt_fiw,bt_pcomp;
     FirebaseFirestore db;
     String questao;
 
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
         db = FirebaseFirestore.getInstance();
         bt_dw = findViewById(R.id.bt_dw);
         bt_fiw = findViewById(R.id.bt_fiw);
+        bt_pcomp = findViewById(R.id.bt_pensamento_computacional);
 
 
         db.collection("DesenvolvimentoWeb").document("1")
@@ -37,6 +39,13 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                 });
+        db.collection("PensamentoComputacional").document("1")
+                .addSnapshotListener((documento, error) -> {
+                    if (documento!=null){
+                        questao = documento.getString("questao");
+                    }
+
+                });
 
 
         bt_dw.setOnClickListener(view -> {
@@ -45,6 +54,11 @@ public class MainActivity extends AppCompatActivity {
         });
         bt_fiw.setOnClickListener(view -> {
             Intent i = new Intent(MainActivity.this, FundamentosInternetWeb.class);
+            startActivity(i);
+
+        });
+        bt_pcomp.setOnClickListener(view -> {
+            Intent i = new Intent(MainActivity.this, PensamentoComputacional.class);
             startActivity(i);
 
         });

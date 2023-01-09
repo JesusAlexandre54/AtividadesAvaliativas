@@ -1,15 +1,20 @@
-package com.example.atividadesavaliativas.DesenvolvimentoWeb;
+package com.example.atividadesavaliativas.PensamentoComputacional;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
+import com.example.atividadesavaliativas.DesenvolvimentoWeb.DesenvolvimentoWeb;
+import com.example.atividadesavaliativas.DesenvolvimentoWeb.DwFim;
+import com.example.atividadesavaliativas.DesenvolvimentoWeb.DwQuestoes;
 import com.example.atividadesavaliativas.R;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.Objects;
 
-public class DesenvolvimentoWeb extends AppCompatActivity {
+public class PensamentoComputacional extends AppCompatActivity {
     Intent i;
     int Placar, Questao;
     boolean fim;
@@ -19,7 +24,8 @@ public class DesenvolvimentoWeb extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_desenvolvimento_web);
+        setContentView(R.layout.activity_pensamento_computacional);
+
         Objects.requireNonNull(getSupportActionBar()).hide();
 
         db = FirebaseFirestore.getInstance();
@@ -35,7 +41,7 @@ public class DesenvolvimentoWeb extends AppCompatActivity {
 
         }
         String questao_aleatoria =String.valueOf(Questao);
-        db.collection("DesenvolvimentoWeb").document(questao_aleatoria)
+        db.collection("PensamentoComputacional").document(questao_aleatoria)
                 .addSnapshotListener((documento, error) -> {
                     if (documento!=null){
                         resp1 = documento.getString("resp1");
@@ -46,13 +52,13 @@ public class DesenvolvimentoWeb extends AppCompatActivity {
         new Handler().postDelayed(() -> {
             if (resp1==null){
                 Questao-=1;
-                i = new Intent(DesenvolvimentoWeb.this, DwFim.class);
+                i = new Intent(PensamentoComputacional.this, PcompFim.class);
                 i.putExtra("placar", Placar);
                 i.putExtra("questaoEscolhida",Questao);
                 startActivity(i);
 
             }else {
-                i = new Intent(DesenvolvimentoWeb.this, DwQuestoes.class);
+                i = new Intent(PensamentoComputacional.this, PcompQuestoes.class);
                 i.putExtra("placar", Placar);
                 i.putExtra("questaoEscolhida", Questao);
 

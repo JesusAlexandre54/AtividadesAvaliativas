@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">AtividadesAvaliativas</string>
+    <string name="pensamento_computacional">Pensamento Computacional</string>
+    <string name="quest_o">Questão</string>
+    <string name="a_o_rato">a - O Rato</string>
+    <string name="n">N</string>
 </resources>

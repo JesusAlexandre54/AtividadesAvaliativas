@@ -50,6 +50,7 @@ public class FundamentosInternetWeb extends AppCompatActivity {
 
         new Handler().postDelayed(() -> {
             if (resp1==null){
+                Questao-=1;
                 i = new Intent(FundamentosInternetWeb.this, FiwFim.class);
                 i.putExtra("placar", Placar);
                 i.putExtra("questaoEscolhida",Questao);
