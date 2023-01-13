@@ -1,4 +1,4 @@
-package com.example.atividadesavaliativas.DesenvolvimentoWeb;
+package com.example.atividadesavaliativas.ProjetoseMetodosParaProducao;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,7 +6,6 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -21,7 +20,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.Objects;
 
-public class DwQuestoes extends AppCompatActivity {
+public class ProjetoseMetodosParaProducaoQuestoes extends AppCompatActivity {
     RadioButton a,b,c,d,e;
     Button bt_resposta, bt_continuar,bt_finalizar;
     RadioGroup radioGroup;
@@ -33,11 +32,12 @@ public class DwQuestoes extends AppCompatActivity {
     int Questao ;
     String resposta="";
     ImageView image_questao;
+
     @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dw_questoes);
+        setContentView(R.layout.activity_projetose_metodos_para_producao_questoes);
         Objects.requireNonNull(getSupportActionBar()).hide();
         db = FirebaseFirestore.getInstance();
         bt_resposta = findViewById(R.id.bt_resp);
@@ -59,7 +59,7 @@ public class DwQuestoes extends AppCompatActivity {
         if(intent != null) {
             Placar = intent.getIntExtra("placar", 0);
             Questao = intent.getIntExtra("questaoEscolhida", 0);
-            }else {
+        }else {
             Placar = 0;
             Questao = 1;
         }
@@ -74,52 +74,52 @@ public class DwQuestoes extends AppCompatActivity {
 
         String questao_aleatoria =String.valueOf(Questao);
 
-              db.collection("DesenvolvimentoWeb").document(questao_aleatoria)
-               .addSnapshotListener((documento, error) -> {
-                   if (documento!=null){
-                       questao = documento.getString("questao");
-                       resp1 = documento.getString("resp1");
-                       resp2 = documento.getString("resp2");
-                       resp3 = documento.getString("resp3");
-                       resp4 = documento.getString("resp4");
-                       resp5 = documento.getString("resp5");
-                       respcorreta = documento.getString("respcorreta");
-                       url_image = documento.getString("img_url");
+        db.collection("ProjetoseMetodosParaProducao").document(questao_aleatoria)
+                .addSnapshotListener((documento, error) -> {
+                    if (documento!=null){
+                        questao = documento.getString("questao");
+                        resp1 = documento.getString("resp1");
+                        resp2 = documento.getString("resp2");
+                        resp3 = documento.getString("resp3");
+                        resp4 = documento.getString("resp4");
+                        resp5 = documento.getString("resp5");
+                        respcorreta = documento.getString("respcorreta");
+                        url_image = documento.getString("img_url");
 
-                       tv_questao.setText(questao);
-                       a.setText(resp1);
-                       b.setText(resp2);
-                       c.setText(resp3);
-                       d.setText(resp4);
-                       e.setText(resp5);
+                        tv_questao.setText(questao);
+                        a.setText(resp1);
+                        b.setText(resp2);
+                        c.setText(resp3);
+                        d.setText(resp4);
+                        e.setText(resp5);
 
-                       if (url_image != null){
+                        if (url_image != null){
 
-                           image_questao.setVisibility(View.VISIBLE);
-                           Glide.with(this).load(url_image).into(image_questao);
-                       }
+                            image_questao.setVisibility(View.VISIBLE);
+                            Glide.with(this).load(url_image).into(image_questao);
+                        }
 
 
-                   }
-               });
+                    }
+                });
         bt_resposta.setOnClickListener(view -> {
 
 
-                if (!(a.isChecked()||b.isChecked()||c.isChecked()||d.isChecked()||e.isChecked())){
-                Toast.makeText(DwQuestoes.this, "É necessario selecionar uma ersposta!", Toast.LENGTH_SHORT).show();
+            if (!(a.isChecked()||b.isChecked()||c.isChecked()||d.isChecked()||e.isChecked())){
+                Toast.makeText(ProjetoseMetodosParaProducaoQuestoes.this, "É necessario selecionar uma ersposta!", Toast.LENGTH_SHORT).show();
                 return;
-               }else{
+            }else{
 
-               if (a.isChecked() && resp1.equals(respcorreta)) {
+                if (a.isChecked() && resp1.equals(respcorreta)) {
                     resposta = "Acertou !";
                     Placar += 1;
-                   a.setEnabled(false);
-                   a.setTextColor(Color.parseColor("#006400"));
-                   a.setText(resp1 + " RESPOSTA CORRETA!");
-                   b.setEnabled(false);
-                   c.setEnabled(false);
-                   d.setEnabled(false);
-                   e.setEnabled(false);
+                    a.setEnabled(false);
+                    a.setTextColor(Color.parseColor("#006400"));
+                    a.setText(resp1 + " RESPOSTA CORRETA!");
+                    b.setEnabled(false);
+                    c.setEnabled(false);
+                    d.setEnabled(false);
+                    e.setEnabled(false);
 
 
 
@@ -127,61 +127,61 @@ public class DwQuestoes extends AppCompatActivity {
                 }else if (b.isChecked() && resp2.equals(respcorreta)) {
                     resposta = "Acertou !";
                     Placar += 1;
-                   b.setEnabled(false);
-                   b.setTextColor(Color.parseColor("#006400"));
-                   b.setText(resp2 + " RESPOSTA CORRETA!");
-                   a.setEnabled(false);
-                   c.setEnabled(false);
-                   d.setEnabled(false);
-                   e.setEnabled(false);
+                    b.setEnabled(false);
+                    b.setTextColor(Color.parseColor("#006400"));
+                    b.setText(resp2 + " RESPOSTA CORRETA!");
+                    a.setEnabled(false);
+                    c.setEnabled(false);
+                    d.setEnabled(false);
+                    e.setEnabled(false);
 
                 }else if (c.isChecked() && resp3.equals(respcorreta)) {
                     resposta = "Acertou !";
                     Placar += 1;
-                   c.setEnabled(false);
-                   c.setTextColor(Color.parseColor("#006400"));
-                   c.setText(resp3 + " RESPOSTA CORRETA!");
-                   a.setEnabled(false);
-                   b.setEnabled(false);
-                   d.setEnabled(false);
-                   e.setEnabled(false);
+                    c.setEnabled(false);
+                    c.setTextColor(Color.parseColor("#006400"));
+                    c.setText(resp3 + " RESPOSTA CORRETA!");
+                    a.setEnabled(false);
+                    b.setEnabled(false);
+                    d.setEnabled(false);
+                    e.setEnabled(false);
 
                 }else if (d.isChecked() && resp4.equals(respcorreta)) {
                     resposta = "Acertou !";
                     Placar += 1;
-                   d.setEnabled(false);
-                   d.setTextColor(Color.parseColor("#006400"));
-                   d.setText(resp4 + " RESPOSTA CORRETA!");
-                   a.setEnabled(false);
-                   b.setEnabled(false);
-                   c.setEnabled(false);
-                   e.setEnabled(false);
+                    d.setEnabled(false);
+                    d.setTextColor(Color.parseColor("#006400"));
+                    d.setText(resp4 + " RESPOSTA CORRETA!");
+                    a.setEnabled(false);
+                    b.setEnabled(false);
+                    c.setEnabled(false);
+                    e.setEnabled(false);
 
                 }else if (e.isChecked() && resp5.equals(respcorreta)) {
                     resposta = "Acertou !";
                     Placar += 1;
-                   e.setEnabled(false);
-                   e.setTextColor(Color.parseColor("#006400"));
-                   e.setText(resp5+ " RESPOSTA CORRETA!");
-                   a.setEnabled(false);
-                   c.setEnabled(false);
-                   b.setEnabled(false);
-                   d.setEnabled(false);
+                    e.setEnabled(false);
+                    e.setTextColor(Color.parseColor("#006400"));
+                    e.setText(resp5+ " RESPOSTA CORRETA!");
+                    a.setEnabled(false);
+                    c.setEnabled(false);
+                    b.setEnabled(false);
+                    d.setEnabled(false);
 
                 }else if (!(resposta.equals("Acertou !"))){
 
                     resposta = "Errou !"; }
-                }
+            }
             if (resp1.equals(respcorreta)){
                 if (b.isChecked()){
-                a.setEnabled(false);
-                a.setTextColor(Color.parseColor("#006400"));
-                a.setText(resp1 + " RESPOSTA CORRETA!");
-                b.setEnabled(false);
-                //b.setTextColor(Color.parseColor("#636161"));
-                c.setEnabled(false);
-                d.setEnabled(false);
-                e.setEnabled(false);
+                    a.setEnabled(false);
+                    a.setTextColor(Color.parseColor("#006400"));
+                    a.setText(resp1 + " RESPOSTA CORRETA!");
+                    b.setEnabled(false);
+                    //b.setTextColor(Color.parseColor("#636161"));
+                    c.setEnabled(false);
+                    d.setEnabled(false);
+                    e.setEnabled(false);
                 }else if (c.isChecked()){
                     a.setEnabled(false);
                     a.setTextColor(Color.parseColor("#006400"));
@@ -399,22 +399,22 @@ public class DwQuestoes extends AppCompatActivity {
                     e.setEnabled(false);}
 
             }
-        if (resposta.equals("Acertou !")){
-            tv_resposta.setTextColor( getResources().getColor(R.color.blue));
-        }else if (resposta.equals( "Errou !")){
-            tv_resposta.setTextColor( getResources().getColor(R.color.red));
-        }
+            if (resposta.equals("Acertou !")){
+                tv_resposta.setTextColor( getResources().getColor(R.color.blue));
+            }else if (resposta.equals( "Errou !")){
+                tv_resposta.setTextColor( getResources().getColor(R.color.red));
+            }
 
             //Toast.makeText(DwQuestao1.this, "Selecionado"+resposta, Toast.LENGTH_SHORT).show();
             String placar = Integer.toString(Placar);
             tv_placar.setText(placar);
             tv_resposta.setText(resposta);
-        bt_resposta.setVisibility(View.GONE);
-        bt_finalizar.setVisibility(View.VISIBLE);
+            bt_resposta.setVisibility(View.GONE);
+            bt_finalizar.setVisibility(View.VISIBLE);
         });
 
         bt_finalizar.setOnClickListener(view -> {
-            Intent i = new Intent(DwQuestoes.this, DwFim.class);
+            Intent i = new Intent(ProjetoseMetodosParaProducaoQuestoes.this, ProjetoseMetodosParaProducaoFim.class);
             i.putExtra("placar",Placar);
             i.putExtra("questaoEscolhida",Questao);
 
@@ -426,20 +426,19 @@ public class DwQuestoes extends AppCompatActivity {
         bt_continuar.setOnClickListener(view -> {
 
             if (!(a.isChecked()||b.isChecked()||c.isChecked()||d.isChecked()||e.isChecked())){
-                Toast.makeText(DwQuestoes.this, "É necessario selecionar uma ersposta!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ProjetoseMetodosParaProducaoQuestoes.this, "É necessario selecionar uma ersposta!", Toast.LENGTH_SHORT).show();
 
             } else if ( resposta.equals("")){
 
-                Toast.makeText(DwQuestoes.this, "É necessario uma responder antes de continuar!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ProjetoseMetodosParaProducaoQuestoes.this, "É necessario uma responder antes de continuar!", Toast.LENGTH_SHORT).show();
 
             }else{
-            Questao+=1;
-            Intent i = new Intent(DwQuestoes.this, DesenvolvimentoWeb.class);
-            i.putExtra("placar",Placar);
-            i.putExtra("questaoEscolhida",Questao);
-            startActivity(i);}
+                Questao+=1;
+                Intent i = new Intent(ProjetoseMetodosParaProducaoQuestoes.this, ProjetoseMetodosParaProducao.class);
+                i.putExtra("placar",Placar);
+                i.putExtra("questaoEscolhida",Questao);
+                startActivity(i);}
         });
-
 
 
 

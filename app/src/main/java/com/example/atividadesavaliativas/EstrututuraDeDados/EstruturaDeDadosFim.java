@@ -1,4 +1,4 @@
-package com.example.atividadesavaliativas.FundamentosInternetWeb;
+package com.example.atividadesavaliativas.EstrututuraDeDados;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,22 +6,20 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
-
 import com.example.atividadesavaliativas.MainActivity;
 import com.example.atividadesavaliativas.R;
 
-public class FiwFim extends AppCompatActivity {
+public class EstruturaDeDadosFim extends AppCompatActivity {
     int Placar, Questao;
     TextView acertos,total;
     String mensagem1 = "de ";
     String mensagem2 = " questões";
     Button sair, reiniciar;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_fiw_fim);
+        setContentView(R.layout.activity_estrutura_de_dados_fim);
         acertos = findViewById(R.id.acertos);
         total = findViewById(R.id.total_questoes);
         sair = findViewById(R.id.bt_sair);
@@ -41,7 +39,7 @@ public class FiwFim extends AppCompatActivity {
         sair.setOnClickListener(view -> finishAffinity());
         reiniciar.setOnClickListener(view -> {
 
-            Intent i = new Intent(FiwFim.this, MainActivity.class);
+            Intent i = new Intent(EstruturaDeDadosFim.this, MainActivity.class);
             startActivity(i);
 
         });

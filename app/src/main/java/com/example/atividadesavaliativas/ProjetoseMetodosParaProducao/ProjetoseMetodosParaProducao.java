@@ -1,4 +1,4 @@
-package com.example.atividadesavaliativas.FundamentosInternetWeb;
+package com.example.atividadesavaliativas.ProjetoseMetodosParaProducao;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,12 +6,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
+import com.example.atividadesavaliativas.DesenvolvimentoWeb.DesenvolvimentoWeb;
+import com.example.atividadesavaliativas.DesenvolvimentoWeb.DwFim;
+import com.example.atividadesavaliativas.DesenvolvimentoWeb.DwQuestoes;
 import com.example.atividadesavaliativas.R;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.Objects;
 
-public class FundamentosInternetWeb extends AppCompatActivity {
+public class ProjetoseMetodosParaProducao extends AppCompatActivity {
     Intent i;
     int Placar, Questao;
     boolean fim;
@@ -21,7 +24,7 @@ public class FundamentosInternetWeb extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_fundamentos_internet_web);
+        setContentView(R.layout.activity_projetose_metodos_para_producao);
         Objects.requireNonNull(getSupportActionBar()).hide();
 
         db = FirebaseFirestore.getInstance();
@@ -37,7 +40,7 @@ public class FundamentosInternetWeb extends AppCompatActivity {
 
         }
         String questao_aleatoria =String.valueOf(Questao);
-        db.collection("FundamentosInternetWeb").document(questao_aleatoria)
+        db.collection("ProjetoseMetodosParaProducao").document(questao_aleatoria)
                 .addSnapshotListener((documento, error) -> {
                     if (documento!=null){
                         resp1 = documento.getString("resp1");
@@ -48,13 +51,13 @@ public class FundamentosInternetWeb extends AppCompatActivity {
         new Handler().postDelayed(() -> {
             if (resp1==null){
                 Questao-=1;
-                i = new Intent(FundamentosInternetWeb.this, FiwFim.class);
+                i = new Intent(ProjetoseMetodosParaProducao.this, ProjetoseMetodosParaProducaoFim.class);
                 i.putExtra("placar", Placar);
                 i.putExtra("questaoEscolhida",Questao);
                 startActivity(i);
 
             }else {
-                i = new Intent(FundamentosInternetWeb.this, FiwQuestoes.class);
+                i = new Intent(ProjetoseMetodosParaProducao.this, ProjetoseMetodosParaProducaoQuestoes.class);
                 i.putExtra("placar", Placar);
                 i.putExtra("questaoEscolhida", Questao);
 

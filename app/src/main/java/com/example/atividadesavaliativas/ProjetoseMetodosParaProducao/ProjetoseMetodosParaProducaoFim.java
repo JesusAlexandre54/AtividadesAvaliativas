@@ -1,4 +1,4 @@
-package com.example.atividadesavaliativas.FundamentosInternetWeb;
+package com.example.atividadesavaliativas.ProjetoseMetodosParaProducao;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,10 +7,11 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.atividadesavaliativas.DesenvolvimentoWeb.DwFim;
 import com.example.atividadesavaliativas.MainActivity;
 import com.example.atividadesavaliativas.R;
 
-public class FiwFim extends AppCompatActivity {
+public class ProjetoseMetodosParaProducaoFim extends AppCompatActivity {
     int Placar, Questao;
     TextView acertos,total;
     String mensagem1 = "de ";
@@ -21,7 +22,7 @@ public class FiwFim extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_fiw_fim);
+        setContentView(R.layout.activity_projetose_metodos_para_producao_fim);
         acertos = findViewById(R.id.acertos);
         total = findViewById(R.id.total_questoes);
         sair = findViewById(R.id.bt_sair);
@@ -41,11 +42,9 @@ public class FiwFim extends AppCompatActivity {
         sair.setOnClickListener(view -> finishAffinity());
         reiniciar.setOnClickListener(view -> {
 
-            Intent i = new Intent(FiwFim.this, MainActivity.class);
+            Intent i = new Intent(ProjetoseMetodosParaProducaoFim.this, MainActivity.class);
             startActivity(i);
 
         });
-
-
     }
 }

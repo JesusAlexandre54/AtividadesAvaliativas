@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -14,7 +14,7 @@
         android:textSize="30sp"
         android:layout_marginTop="100dp"
         android:gravity="center"
-        android:text="Você acertou:"
+        android:text="@string/voc_acertou"
 
         />
 
@@ -25,7 +25,7 @@
         android:textSize="30sp"
        android:layout_marginTop="20dp"
         android:gravity="center"
-        android:text="20"
+        android:text="@string/_20"
 
         />
 
@@ -36,7 +36,7 @@
         android:textSize="30sp"
 
         android:gravity="center"
-        android:text="de 40 questões"
+        android:text="@string/de_40_quest_es"
 
         />
     <LinearLayout
@@ -47,20 +47,22 @@
         android:orientation="horizontal">
 
         <Button
+            style="@android:style/ButtonBar"
             android:id="@+id/bt_sair"
             android:layout_width="150sp"
             android:layout_height="50sp"
-            android:layout_marginLeft="10sp"
+            android:layout_marginStart="10sp"
             android:visibility="visible"
             android:background="@drawable/btn_bg_design"
-            android:text="SAIR" />
+            android:text="@string/sair" />
         <Button
+            style="@android:style/ButtonBar"
             android:id="@+id/bt_reiniciar"
             android:layout_width="150sp"
             android:layout_height="50sp"
-             android:layout_marginLeft="10sp"
+             android:layout_marginStart="10sp"
             android:background="@drawable/btn_bg_design"
-            android:text="REINICIAR" />
+            android:text="@string/reiniciar" />
 
 
     </LinearLayout>
