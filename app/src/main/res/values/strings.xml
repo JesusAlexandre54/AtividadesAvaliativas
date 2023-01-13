@@ -9,7 +9,7 @@
     <string name="de_40_quest_es">de 40 questões</string>
     <string name="reiniciar">REINICIAR</string>
     <string name="sair">SAIR</string>
-    <string name="estrutura_de_dados">Estrutura de Dados</string>
+    <string name="estrutura_de_dados">ESTRUTURA DE DADOS</string>
     <string name="b_o_pato">b - Resposta 2</string>
     <string name="c_o_gato">c - Resposta 3</string>
     <string name="d_o_rato">d - Resposta 4</string>
@@ -28,4 +28,17 @@
     <string name="introdu_o_e_conceitos_de_computa_o">INTRODUÇÃO E CONCEITOS DE COMPUTAÇÃO</string>
     <string name="sistemas_computacionais">SISTEMAS COMPUTACIONAIS</string>
     <string name="programa_o_orientada_a_objetos">PROGRAMAÇÃO ORIENTADA A OBJETOS</string>
+    <string name="projeto_e_an_lise_de_algor_tmos">PROJETO E ANÁLISE DE ALGORÍTMOS</string>
+    <string name="desenvolvimento_para_dispositivos_m_veis">DESENVOLVIMENTO PARA DISPOSITIVOS MÓVEIS</string>
+    <string name="pocessamento_digital_de_sinais">POCESSAMENTO DIGITAL DE SINAIS</string>
+    <string name="compiladores">COMPILADORES</string>
+    <string name="gest_o_da_inova_o_e_desenv_de_produtos">GESTÃO DA INOVAÇÃO E DESENVOLVIMENTO DE PRODUTOS</string>
+    <string name="forma_o_profissional_em_computa_o">FORMAÇÃO PROFISSIONAL EM COMPUTAÇÃO</string>
+    <string name="banco_de_dados">BANCO DE DADOS</string>
+    <string name="impactos_da_computa_o_na_sociedade">IMPACTOS DA COMPUTAÇÃO NA SOCIEDADE</string>
+    <string name="engenharia_de_software">ENGENHARIA DE SOFTWARE</string>
+    <string name="protocolos_de_comunica_o_iot">PROTOCOLOS DE COMUNICAÇÃO IOT</string>
+    <string name="sistemas_embarcados">SISTEMAS EMBARCADOS</string>
+    <string name="infraestrutura_para_sistemas_de_software">INFRAESTRUTURA PARA SISTEMAS DE SOFTWARE</string>
+    <string name="interface_humano_computador">INTERFACE HUMANO COMPUTADOR</string>
 </resources>

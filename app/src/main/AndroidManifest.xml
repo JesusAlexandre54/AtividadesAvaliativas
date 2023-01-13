@@ -13,6 +13,48 @@
         android:theme="@style/Theme.AtividadesAvaliativas"
         tools:targetApi="31">
         <activity
+            android:name=".DesenvolvimentoParaDispositivosMoveis.DesenvolvimentoParaDispositivosMoveis"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".DesenvolvimentoParaDispositivosMoveis.DesenvolvimentoParaDispositivosMoveisQuestoes"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".DesenvolvimentoParaDispositivosMoveis.DesenvolvimentoParaDispositivosMoveisFim"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ProjetoeAnaliseDeAlgoritmos.ProjetoeAnaliseDeAlgoritmos"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ProjetoeAnaliseDeAlgoritmos.ProjetoeAnaliseDeAlgoritmosFim"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ProjetoeAnaliseDeAlgoritmos.ProjetoeAnaliseDeAlgoritmosQuestoes"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".ProgramacaoOrientadaaObjetos.ProgramacaoOrientadaaObjetos"
             android:exported="false">
             <meta-data

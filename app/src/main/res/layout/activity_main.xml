@@ -1,92 +1,204 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/univesp"
 
     >
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:textColor="@color/white"
-        android:text="@string/escolha_o_curso_desejado"
-        android:gravity="center"
-        android:textSize="34sp" />
     <LinearLayout
-        android:id="@+id/layoutmain"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="vertical"
+        tools:context=".MainActivity">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:gravity="center"
+            android:text="@string/escolha_o_curso_desejado"
+            android:textColor="@color/white"
+            android:textSize="34sp" />
+
+        <LinearLayout
+            android:id="@+id/layoutmain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/bt_pensamento_computacional"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/btn_bg_design"
+            android:text="@string/pensamento_computacional" />
+
+        <Button
+            android:id="@+id/bt_projetos_e_metodos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/btn_bg_design"
+            android:text="@string/projetos_e_m_todos_para_produ_o" />
+
+        <Button
+            android:id="@+id/bt_introducao_e_conceitos_de_computacao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/btn_bg_design"
+            android:text="@string/introdu_o_e_conceitos_de_computa_o" />
+
+        <Button
+            android:id="@+id/bt_fiw"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/btn_bg_design"
+            android:text="@string/fundamentos_da_internet_e_web" />
+
+        <Button
+            android:id="@+id/bt_estrutura_de_dados"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/btn_bg_design"
+            android:text="@string/estrutura_de_dados" />
+
+        <Button
+            android:id="@+id/bt_formacao_profissional_em_computacao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/btn_bg_design"
+            android:text="@string/forma_o_profissional_em_computa_o" />
+
+        <Button
+            android:id="@+id/bt_gestão_da_Inovação_e_Desenvolvimento_de_Produtos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/btn_bg_design"
+            android:text="@string/gest_o_da_inova_o_e_desenv_de_produtos" />
+
+
+        <Button
+            android:id="@+id/bt_programacao_orientada_a_objetos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/btn_bg_design"
+            android:text="@string/programa_o_orientada_a_objetos" />
+
+        <Button
+            android:id="@+id/bt_sistemas_computacionais"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/btn_bg_design"
+            android:text="@string/sistemas_computacionais" />
+
+        <Button
+            android:id="@+id/bt_banco_de_dados"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/btn_bg_design"
+            android:text="@string/banco_de_dados" />
+
+        <Button
+            android:id="@+id/bt_engenharia_de_software"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/btn_bg_design"
+            android:text="@string/engenharia_de_software" />
+
+        <Button
+            android:id="@+id/bt_protocolos_de_comunicação_iot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/btn_bg_design"
+            android:text="@string/protocolos_de_comunica_o_iot" />
+
+        <Button
+            android:id="@+id/bt_sistemas_embarcados"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/btn_bg_design"
+            android:text="@string/sistemas_embarcados" />
+
+        <Button
+            android:id="@+id/bt_dw"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/btn_bg_design"
+            android:text="@string/desenvolvimento_web" />
+
+        <Button
+            android:id="@+id/bt_infraestrutura_para_istemas_de_software"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/btn_bg_design"
+            android:text="@string/infraestrutura_para_sistemas_de_software" />
+
+        <Button
+            android:id="@+id/bt_interface_humano_computador"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/btn_bg_design"
+            android:text="@string/interface_humano_computador" />
+
+        <Button
+            android:id="@+id/bt_projeto_e_analise_de_algoritmos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/btn_bg_design"
+            android:text="@string/projeto_e_an_lise_de_algor_tmos" />
+
+        <Button
+            android:id="@+id/bt_desenvolvimento_para_dispositivos_moveis"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/btn_bg_design"
+            android:text="@string/desenvolvimento_para_dispositivos_m_veis" />
+
+        <Button
+            android:id="@+id/bt_processamento_digital_de_sinais"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/btn_bg_design"
+            android:text="@string/pocessamento_digital_de_sinais" />
+
+        <Button
+            android:id="@+id/bt_compiladores"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/btn_bg_design"
+            android:text="@string/compiladores" />
+
+        <Button
+            android:id="@+id/bt_impactos_da_computacao_na_sociedade"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/btn_bg_design"
+            android:text="@string/impactos_da_computa_o_na_sociedade" />
+
 
     </LinearLayout>
-
-    <Button
-        android:id="@+id/bt_dw"
-        android:background="@drawable/btn_bg_design"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:text="@string/desenvolvimento_web" />
-
-    <Button
-        android:id="@+id/bt_fiw"
-        android:layout_margin="10dp"
-        android:background="@drawable/btn_bg_design"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/fundamentos_da_internet_e_web" />
-    <Button
-        android:id="@+id/bt_pensamento_computacional"
-        android:layout_margin="10dp"
-        android:background="@drawable/btn_bg_design"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/pensamento_computacional" />
-    <Button
-    android:id="@+id/bt_projetos_e_metodos"
-    android:layout_margin="10dp"
-    android:background="@drawable/btn_bg_design"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="@string/projetos_e_m_todos_para_produ_o" />
-    <Button
-    android:id="@+id/bt_estrutura_de_dados"
-    android:layout_margin="10dp"
-    android:background="@drawable/btn_bg_design"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="@string/estrutura_de_dados" />
-    <Button
-    android:id="@+id/bt_introducao_e_conceitos_de_computacao"
-    android:layout_margin="10dp"
-    android:background="@drawable/btn_bg_design"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="@string/introdu_o_e_conceitos_de_computa_o" />
-    <Button
-    android:id="@+id/bt_sistemas_computacionais"
-    android:layout_margin="10dp"
-    android:background="@drawable/btn_bg_design"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="@string/sistemas_computacionais" />
-    <Button
-        android:id="@+id/bt_programacao_orientada_a_objetos"
-        android:layout_margin="10dp"
-        android:background="@drawable/btn_bg_design"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/programa_o_orientada_a_objetos" />
-
-
-</LinearLayout>
 </ScrollView>

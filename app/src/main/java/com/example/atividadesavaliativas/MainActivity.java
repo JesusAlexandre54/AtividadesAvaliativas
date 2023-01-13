@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 
+import com.example.atividadesavaliativas.DesenvolvimentoParaDispositivosMoveis.DesenvolvimentoParaDispositivosMoveis;
 import com.example.atividadesavaliativas.DesenvolvimentoWeb.DesenvolvimentoWeb;
 import com.example.atividadesavaliativas.EstrututuraDeDados.EstruturaDeDados;
 import com.example.atividadesavaliativas.FundamentosInternetWeb.FundamentosInternetWeb;
@@ -15,7 +16,7 @@ import com.example.atividadesavaliativas.SistemasComputacionais.SistemasComputac
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class MainActivity extends AppCompatActivity {
-    Button bt_dw,bt_fiw,bt_pcomp,bt_projemetodos,bt_estrutura,bt_introducao,bt_sistemasComputacionais,bt_poo;
+    Button bt_dw,bt_fiw,bt_pcomp,bt_projemetodos,bt_estrutura,bt_introducao,bt_sistemasComputacionais,bt_poo,bt_desenvolvimentoParaAplicativosMoveis;
     FirebaseFirestore db;
     String questao;
 
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         db = FirebaseFirestore.getInstance();
+        bt_desenvolvimentoParaAplicativosMoveis = findViewById(R.id.bt_desenvolvimento_para_dispositivos_moveis);
         bt_poo=findViewById(R.id.bt_programacao_orientada_a_objetos);
         bt_sistemasComputacionais = findViewById(R.id.bt_sistemas_computacionais);
         bt_introducao = findViewById(R.id.bt_introducao_e_conceitos_de_computacao);
@@ -91,6 +93,13 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                 });
+        db.collection("DesenvolvimentoParaDispositivosMoveis").document("1")
+                .addSnapshotListener((documento, error) -> {
+                    if (documento!=null){
+                        questao = documento.getString("questao");
+                    }
+
+                });
 
 
 
@@ -129,7 +138,10 @@ public class MainActivity extends AppCompatActivity {
             Intent i = new Intent(MainActivity.this, ProgramacaoOrientadaaObjetos.class);
             startActivity(i);
         });
-
+       bt_desenvolvimentoParaAplicativosMoveis.setOnClickListener(view -> {
+           Intent i = new Intent(MainActivity.this, DesenvolvimentoParaDispositivosMoveis.class);
+           startActivity(i);
+       });
     }
 
 
