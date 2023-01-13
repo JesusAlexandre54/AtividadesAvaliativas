@@ -13,6 +13,62 @@
         android:theme="@style/Theme.AtividadesAvaliativas"
         tools:targetApi="31">
         <activity
+            android:name=".ProgramacaoOrientadaaObjetos.ProgramacaoOrientadaaObjetos"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ProgramacaoOrientadaaObjetos.ProgramacaoOrientadaaObjetosQuestoes"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ProgramacaoOrientadaaObjetos.ProgramacaoOrientadaaObjetosFim"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".SistemasComputacionais.SistemasComputacionais"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".SistemasComputacionais.SistemasComputacionaisQuestoes"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".SistemasComputacionais.SistemasComputacionaisFim"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".IntroducaoeConceitosdeComputacao.IntroducaoeConceitoDeComputacaoFim"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".IntroducaoeConceitosdeComputacao.IntroducaoeConceitoDeComputacao"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".EstrututuraDeDados.EstruturaDeDadosQuestao"
             android:exported="false">
             <meta-data
