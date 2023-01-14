@@ -44,14 +44,16 @@ public class DesenvolvimentoParaDispositivosMoveisFim extends AppCompatActivity 
         String mensagem = mensagem1 + quant_questao + mensagem2;
         if (Questao == 0){
             imagemFinal.setVisibility(View.VISIBLE);
-            acertos.setVisibility(View.INVISIBLE);
-            total.setVisibility(View.INVISIBLE);
-            voceacertou.setVisibility(View.INVISIBLE);
+            acertos.setVisibility(View.GONE);
+            total.setVisibility(View.GONE);
+            voceacertou.setVisibility(View.GONE);
         }else {
             acertos.setText(String.valueOf(Placar));
             total.setText(mensagem);
-            sair.setOnClickListener(view -> finishAffinity());
+            imagemFinal.setVisibility(View.GONE);
+
         }
+        sair.setOnClickListener(view -> finishAffinity());
         reiniciar.setOnClickListener(view -> {
 
             Intent i = new Intent(DesenvolvimentoParaDispositivosMoveisFim.this, MainActivity.class);

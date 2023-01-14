@@ -4,17 +4,21 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import com.example.atividadesavaliativas.MainActivity;
 import com.example.atividadesavaliativas.R;
 
 public class IntroducaoeConceitoDeComputacaoFim extends AppCompatActivity {
+
     int Placar, Questao;
-    TextView acertos,total;
+    TextView acertos, total,voceacertou;
     String mensagem1 = "de ";
     String mensagem2 = " questões";
     Button sair, reiniciar;
+    ImageView imagemFinal;
 
 
     @Override
@@ -25,6 +29,8 @@ public class IntroducaoeConceitoDeComputacaoFim extends AppCompatActivity {
         total = findViewById(R.id.total_questoes);
         sair = findViewById(R.id.bt_sair);
         reiniciar = findViewById(R.id.bt_reiniciar);
+        imagemFinal = findViewById(R.id.imagemFinal);
+        voceacertou =findViewById(R.id.voceacertou);
 
 
         Intent intent = getIntent();
@@ -35,8 +41,16 @@ public class IntroducaoeConceitoDeComputacaoFim extends AppCompatActivity {
         }
         String quant_questao = String.valueOf(Questao);
         String mensagem = mensagem1+quant_questao+mensagem2;
-        acertos.setText(String.valueOf(Placar));
-        total.setText(mensagem);
+        if (Questao == 0){
+            imagemFinal.setVisibility(View.VISIBLE);
+            acertos.setVisibility(View.GONE);
+            total.setVisibility(View.GONE);
+            voceacertou.setVisibility(View.GONE);
+        }else {
+            acertos.setText(String.valueOf(Placar));
+            total.setText(mensagem);
+            imagemFinal.setVisibility(View.GONE);
+        }
         sair.setOnClickListener(view -> finishAffinity());
         reiniciar.setOnClickListener(view -> {
 

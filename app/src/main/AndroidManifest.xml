@@ -13,6 +13,237 @@
         android:theme="@style/Theme.AtividadesAvaliativas"
         tools:targetApi="31">
         <activity
+            android:name=".SistemasEmbarcados.SistemasEmbarcadosQuestoes"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".SistemasEmbarcados.SistemasEmbarcadosFim"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".SistemasEmbarcados.SistemasEmbarcados"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ProtocolosDeComunicacaoIot.ProtocolosDeComunicacaoIotQuestoes"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ProtocolosDeComunicacaoIot.ProtocolosDeComunicacaoIotFim"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ProtocolosDeComunicacaoIot.ProtocolosDeComunicacaoIot"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ProcessamentoDigitalDeSinais.ProcessamentoDigitalDeSinaisQuestoes"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ProcessamentoDigitalDeSinais.ProcessamentoDigitalDeSinaisFim"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ProcessamentoDigitalDeSinais.ProcessamentoDigitalDeSinais"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".InterfaceHumanoComputador.InterfaceHumanoComputadorQuestoes"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".InterfaceHumanoComputador.InterfaceHumanoComputadorFim"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".InterfaceHumanoComputador.InterfaceHumanoComputador"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".InfraestruturaParaSistemasDeSoftware.InfraestruturaParaSistemasDeSoftwareQuestoes"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".InfraestruturaParaSistemasDeSoftware.InfraestruturaParaSistemasDeSoftware"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".InfraestruturaParaSistemasDeSoftware.InfraestruturaParaSistemasDeSoftwareFim"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ImpactosDaComputacaoNaSociedade.ImpactosDaComputacaoNaSociedade"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ImpactosDaComputacaoNaSociedade.ImpactosDaComputacaoNaSociedadeFim"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ImpactosDaComputacaoNaSociedade.ImpactosDaComputacaoNaSociedadeQuestoes"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".GestaoDaInovacaoeDesenvolvimentoDeProdutos.GestaoDaInovacaoeDesenvolvimentoDeProdutosFim"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".GestaoDaInovacaoeDesenvolvimentoDeProdutos.GestaoDaInovacaoeDesenvolvimentoDeProdutos"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".GestaoDaInovacaoeDesenvolvimentoDeProdutos.GestaoDaInovacaoeDesenvolvimentoDeProdutosQuestoes"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".FormacaoProfissionalEmComputacao.FormacaoProfissionalEmComputacaoQuestao"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".FormacaoProfissionalEmComputacao.FormacaoProfissionalEmComputacao"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".FormacaoProfissionalEmComputacao.FormacaoProfissionalEmComputacaoFim"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".EngenhariaDeSoftware.EngenhariaDeSoftwareQuestoes"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".EngenhariaDeSoftware.EngenhariaDeSoftwareFim"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".EngenhariaDeSoftware.EngenhariaDeSoftware"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".Compiladores.CompiladoresQuestoes"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".Compiladores.CompiladoresFim"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".Compiladores.Compiladores"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".BancoDeDados.BancoDeDadosQuestoes"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".BancoDeDados.BancoDeDadosFim"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".BancoDeDados.BancoDeDados"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".DesenvolvimentoParaDispositivosMoveis.DesenvolvimentoParaDispositivosMoveis"
             android:exported="false">
             <meta-data
@@ -105,6 +336,13 @@
         </activity>
         <activity
             android:name=".IntroducaoeConceitosdeComputacao.IntroducaoeConceitoDeComputacao"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".IntroducaoeConceitosdeComputacao.IntroducaoeConceitosDeComputacaoQuestoes"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

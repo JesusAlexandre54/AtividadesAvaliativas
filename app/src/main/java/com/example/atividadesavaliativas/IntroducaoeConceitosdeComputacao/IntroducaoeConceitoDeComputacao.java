@@ -1,17 +1,11 @@
 package com.example.atividadesavaliativas.IntroducaoeConceitosdeComputacao;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-
-import com.example.atividadesavaliativas.DesenvolvimentoWeb.DesenvolvimentoWeb;
-import com.example.atividadesavaliativas.DesenvolvimentoWeb.DwFim;
-import com.example.atividadesavaliativas.DesenvolvimentoWeb.DwQuestoes;
 import com.example.atividadesavaliativas.R;
 import com.google.firebase.firestore.FirebaseFirestore;
-
 import java.util.Objects;
 
 public class IntroducaoeConceitoDeComputacao extends AppCompatActivity {
@@ -40,7 +34,7 @@ public class IntroducaoeConceitoDeComputacao extends AppCompatActivity {
 
         }
         String questao_aleatoria =String.valueOf(Questao);
-        db.collection("IntroducaoeConceitosDeComputacao").document(questao_aleatoria)
+        db.collection("IntroducaoeConceitoDeComputacao").document(questao_aleatoria)
                 .addSnapshotListener((documento, error) -> {
                     if (documento!=null){
                         resp1 = documento.getString("resp1");

@@ -41,4 +41,6 @@
     <string name="sistemas_embarcados">SISTEMAS EMBARCADOS</string>
     <string name="infraestrutura_para_sistemas_de_software">INFRAESTRUTURA PARA SISTEMAS DE SOFTWARE</string>
     <string name="interface_humano_computador">INTERFACE HUMANO COMPUTADOR</string>
+    <string name="paginaemconstrucao">paginaemconstrucao</string>
+    <string name="imagemfinal">imagemFinal</string>
 </resources>

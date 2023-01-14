@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context=".Compiladores.CompiladoresQuestoes">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/compiladores"
+        android:textSize="30sp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="120dp"
+            android:gravity="center"
+            android:text="@string/quest_o"
+            android:textSize="30sp" />
+
+
+        <TextView
+            android:id="@+id/n_questao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:gravity="center"
+            android:text="@string/n"
+            android:textSize="30sp" />
+
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/tv_questao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:textAlignment="inherit"
+        android:text="@string/quem_roeu_a_roupa_do_rei_de_roma_nononononononoonononoonononoonononoonononoonononoononononoonononononononono"
+        android:textSize="20sp" />
+    <ImageView
+        android:contentDescription="@string/image_daquestao"
+        android:id="@+id/image_questao"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:src="@drawable/img_questao"
+        />
+
+    <RadioGroup
+        android:id="@+id/rd_Group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/dw_a"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/a_o_rato" />
+
+        <RadioButton
+            android:id="@+id/dw_b"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/b_o_pato" />
+
+        <RadioButton
+            android:id="@+id/dw_c"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/a_o_rato" />
+
+        <RadioButton
+            android:id="@+id/dw_d"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/c_o_gato" />
+
+        <RadioButton
+            android:id="@+id/dw_e"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/e_o_cachorro" />
+    </RadioGroup>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            style="@android:style/ButtonBar"
+            android:id="@+id/bt_resp"
+            android:layout_width="150sp"
+            android:layout_height="50sp"
+            android:layout_marginStart="10sp"
+            android:visibility="visible"
+            android:background="@drawable/btn_bg_design"
+            android:text="@string/responder" />
+        <Button
+            style="@android:style/ButtonBar"
+            android:id="@+id/bt_fim"
+            android:layout_width="150sp"
+            android:layout_height="50sp"
+            android:visibility="gone"
+            android:layout_marginStart="10sp"
+            android:background="@drawable/btn_bg_design"
+            android:text="@string/finalizar" />
+
+        <Button
+            style="@android:style/ButtonBar"
+            android:id="@+id/bt_continuar"
+            android:layout_width="150sp"
+            android:layout_height="50sp"
+            android:layout_marginStart="10sp"
+            android:background="@drawable/btn_bg_design"
+            android:text="@string/continuar" />
+    </LinearLayout>
+
+    <TextView
+
+        android:id="@+id/tv_resp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text=""
+        android:textSize="20sp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/acertos"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/placar"
+            android:layout_width="95dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10sp"
+            android:gravity="center"
+            android:text="@string/vazio"
+            android:textSize="20sp"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+
+    </LinearLayout>
+
+
+</LinearLayout>
+
+
+</ScrollView>

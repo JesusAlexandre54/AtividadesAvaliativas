@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".ProcessamentoDigitalDeSinais.ProcessamentoDigitalDeSinaisFim"
+android:orientation="vertical"
+    >
+
+<TextView
+    android:id="@+id/voceacertou"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:textSize="30sp"
+    android:layout_marginTop="100dp"
+    android:gravity="center"
+    android:text="@string/voc_acertou"
+
+    />
+
+<TextView
+    android:id="@+id/acertos"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:textSize="30sp"
+    android:layout_marginTop="20dp"
+    android:gravity="center"
+    android:text="@string/_20"
+
+    />
+
+<TextView
+    android:id="@+id/total_questoes"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:textSize="30sp"
+    android:gravity="center"
+    android:text="@string/de_40_quest_es"
+
+    />
+<ImageView
+    android:contentDescription="@string/imagemfinal"
+    android:src="@drawable/pagina_em_construcao"
+    android:id="@+id/imagemFinal"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:visibility="invisible"/>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:layout_marginTop="100dp"
+    android:orientation="horizontal">
+
+    <Button
+        style="@android:style/ButtonBar"
+        android:id="@+id/bt_sair"
+        android:layout_width="150sp"
+        android:layout_height="50sp"
+        android:layout_marginStart="10sp"
+        android:visibility="visible"
+        android:background="@drawable/btn_bg_design"
+        android:text="@string/sair" />
+    <Button
+        style="@android:style/ButtonBar"
+        android:id="@+id/bt_reiniciar"
+        android:layout_width="150sp"
+        android:layout_height="50sp"
+        android:layout_marginStart="10sp"
+        android:background="@drawable/btn_bg_design"
+        android:text="@string/reiniciar" />
+
+
+</LinearLayout>
+
+</LinearLayout>

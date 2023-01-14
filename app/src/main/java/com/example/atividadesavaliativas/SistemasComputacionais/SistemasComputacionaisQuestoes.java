@@ -2,6 +2,7 @@ package com.example.atividadesavaliativas.SistemasComputacionais;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -12,11 +13,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.bumptech.glide.Glide;
-import com.example.atividadesavaliativas.DesenvolvimentoWeb.DesenvolvimentoWeb;
-import com.example.atividadesavaliativas.DesenvolvimentoWeb.DwFim;
-import com.example.atividadesavaliativas.DesenvolvimentoWeb.DwQuestoes;
 import com.example.atividadesavaliativas.R;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -35,6 +32,7 @@ public class SistemasComputacionaisQuestoes extends AppCompatActivity {
     String resposta="";
     ImageView image_questao;
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -415,7 +413,7 @@ public class SistemasComputacionaisQuestoes extends AppCompatActivity {
         });
 
         bt_finalizar.setOnClickListener(view -> {
-            Intent i = new Intent(SistemasComputacionaisQuestoes.this, SistemasComputacionais.class);
+            Intent i = new Intent(SistemasComputacionaisQuestoes.this, SistemasComputacionaisFim.class);
             i.putExtra("placar",Placar);
             i.putExtra("questaoEscolhida",Questao);
 

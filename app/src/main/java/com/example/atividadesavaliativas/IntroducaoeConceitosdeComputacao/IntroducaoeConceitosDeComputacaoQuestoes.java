@@ -2,6 +2,7 @@ package com.example.atividadesavaliativas.IntroducaoeConceitosdeComputacao;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -31,6 +32,7 @@ public class IntroducaoeConceitosDeComputacaoQuestoes extends AppCompatActivity 
     String resposta="";
     ImageView image_questao;
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
